@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vonmar and Friends University</title>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #form { margin: 20px; }
+        #output { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>New Student Signup</h1>
+    <h5>Note: You will not be able to edit information with asterisk*</h5>
+    <div id="form">
+        <input type="text" id="studentId" placeholder="Student ID*">
+        <input type="text" id="fullName" placeholder="Full Name*">
+        <input type="text" id="dateOfbirth" placeholder="Date of Birth*">
+        <input type="text" id="height" placeholder="Height (cm)">
+        <input type="text" id="weight" placeholder="Weight (kg)">
+        <input type="text" id="gender" placeholder="Gender*">
+        <input type="text" id="nationality" placeholder="Nationality">
+        <input type="text" id="currentAddress" placeholder="Current Address">
+        <input type="text" id="permanentAddress" placeholder="Permanent Address">
+        <input type="text" id="civilStatus" placeholder="Civil Status">
+        <input type="text" id="contactInformation" placeholder="Contact Information (email)">
+        <input type="text" id="emergencyContact" placeholder="Emergency Contact No">
+        <input type="text" id="motherName" placeholder="Mother's Maiden Name">
+        <input type="text" id="fatherName" placeholder="Father's Name">
+        <input type="text" id="religion" placeholder="Religion">
+        <input type="text" id="bloodType" placeholder="Blood Type*">
+        <button id="submit">Submit</button>
+    </div>
+    <div id="output"></div>
+    <script type="module" src="app.mjs"></script>
+
+</body>
+</html>
+studentId fullName dateOfbirth height weight gender nationality currentAddress permanentAddress civilStatus contactInformation emergencyContact motherName fatherName religion bloodType

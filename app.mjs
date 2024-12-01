@@ -1,5 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+import { setDoc, doc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDbezcx_H3tK4sHAofzozB5vqxg5BEyWb0",
@@ -15,19 +17,51 @@ const db = getFirestore(app);
 
 //stor
 const form = document.getElementById('form');
-const nameInput = document.getElementById('name');
-const emailInput = document.getElementById('email');
+const studentIdInput = document.getElementById('studentId');
+const fullNameInput = document.getElementById('fullName');
+const dateOfbirthInput = document.getElementById('dateOfbirth');
+const heightInput = document.getElementById('height');
+const weightInput = document.getElementById('weight');
+const genderInput = document.getElementById('gender');
+const nationalityInput = document.getElementById('nationality');
+const currentAddressInput = document.getElementById('currentAddress');
+const permanentAddressInput = document.getElementById('permanentAddress');
+const civilStatusInput = document.getElementById('civilStatus');
+const contactInformationInput = document.getElementById('contactInformation');
+const emergencyContactInput = document.getElementById('emergencyContact');
+const motherNameInput = document.getElementById('motherName');
+const fatherNameInput = document.getElementById('fatherName');
+const religionInput = document.getElementById('religion');
+const bloodTypeInput = document.getElementById('bloodType');
 const outputDiv = document.getElementById('output');
 
 document.getElementById('submit').addEventListener('click', async () => {
-    const name = nameInput.value;
-    const email = emailInput.value;
+    const studentId = studentIdInput.value;
+    const fullName = fullNameInput.value;
+    const dateOfbirth = dateOfbirthInput.value;
+    const height = heightInput.value;
+    const weight = weightInput.value;
+    const gender = genderInput.value;
+    const nationality = nationalityInput.value;
+    const currentAddress = currentAddressInput.value;
+    const permanentAddress = permanentAddressInput.value;
+    const civilStatus = civilStatusInput.value;
+    const contactInformation = contactInformationInput.value;
+    const emergencyContact = emergencyContactInput.value;
+    const motherName = motherNameInput.value;
+    const fatherName = fatherNameInput.value;
+    const religion = religionInput.value;
+    const bloodType = bloodTypeInput.value;
 
-    if (name && email) {
+    if (studentId && fullName && dateOfbirth && height && weight && gender && nationality 
+        && currentAddress && permanentAddress && civilStatus && contactInformation && emergencyContact 
+        && motherName && fatherName && religion && bloodType) {
         try {
             // Add data to Firestore
-            await addDoc(collection(db, "users"), { name, email });
-            outputDiv.textContent = `Data added: ${name}, ${email}`;
+            await setDoc(doc(db, "students", studentId), { studentId, fullName, dateOfbirth, height, weight, gender, nationality, 
+                currentAddress, permanentAddress, civilStatus, contactInformation, 
+                emergencyContact, motherName, fatherName, religion, bloodType });
+            outputDiv.textContent = `Data added`;
         } catch (e) {
             console.error("Error adding document: ", e);
         }
