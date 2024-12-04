@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>Vonmar and Friends University</title>
     <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"></script>
     <style>
@@ -13,18 +13,15 @@
     </style>
 </head>
 <body>
-    <h1>Admin - Edit Student Info</h1>
-    <div>
-        <input type="text" id="searchId" placeholder="Enter Student ID to Search">
-        <button id="search">Search</button>
-    </div>
+    <h1>New Student Signup</h1>
+    <h5>Note: You will not be able to edit information with asterisk*</h5>
     <div id="form">
-        <h3>Edit Student Details</h3>
-        <input type="text" id="fullName" placeholder="Full Name">
-        <input type="text" id="dateOfbirth" placeholder="Date of Birth">
+        <input type="text" id="studentId" placeholder="Student ID*">
+        <input type="text" id="fullName" placeholder="Full Name*">
+        <input type="text" id="dateOfbirth" placeholder="Date of Birth*">
         <input type="text" id="height" placeholder="Height (cm)">
         <input type="text" id="weight" placeholder="Weight (kg)">
-        <input type="text" id="gender" placeholder="Gender">
+        <input type="text" id="gender" placeholder="Gender*">
         <input type="text" id="nationality" placeholder="Nationality">
         <input type="text" id="currentAddress" placeholder="Current Address">
         <input type="text" id="permanentAddress" placeholder="Permanent Address">
@@ -34,17 +31,10 @@
         <input type="text" id="motherName" placeholder="Mother's Maiden Name">
         <input type="text" id="fatherName" placeholder="Father's Name">
         <input type="text" id="religion" placeholder="Religion">
-        <input type="text" id="bloodType" placeholder="Blood Type">
-        <input type="text" id="enrollmentStatus" placeholder="Enrollment Status">
-        <input type="text" id="yearLevel" placeholder="Year Level">
-        <input type="text" id="programOfStudy" placeholder="Program of Study">
-        <textarea id="academicRecords" placeholder="Academic Records"></textarea>
-        <textarea id="behavioralInfo" placeholder="Behavioural Information"></textarea>
-        <textarea id="extracurricularActivities" placeholder="Extracurricular Activities"></textarea>
-        <textarea id="supportData" placeholder="Support and Intervention Data"></textarea>
-        <button id="update">Update</button>
+        <input type="text" id="bloodType" placeholder="Blood Type*">
+        <button id="submit">Submit</button>
     </div>
     <div id="output"></div>
-    <script type="module" src="admin.mjs"></script>
+    <script type="module" src="studentSignUp.mjs"></script>
 </body>
 </html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        div {
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Dashboard</h1>
+    <div>
+        <h2>Welcome, <span id="studentName"></span>!</h2>
+        <p><strong>Student ID:</strong> <span id="dashboardStudentId"></span></p>
+        <p><strong>Date of Birth:</strong> <span id="dashboardDob"></span></p>
+        <p><strong>Height:</strong> <span id="dashboardHeight"></span></p>
+        <p><strong>Weight:</strong> <span id="dashboardWeight"></span></p>
+        <p><strong>Gender:</strong> <span id="dashboardGender"></span></p>
+        <p><strong>Nationality:</strong> <span id="dashboardNationality"></span></p>
+        <p><strong>Address:</strong> <span id="dashboardAddress"></span></p>
+        <p><strong>Civil Status:</strong> <span id="dashboardCivilStatus"></span></p>
+        <p><strong>Contact Information:</strong> <span id="dashboardContactInformation"></span></p>
+        <p><strong>Emergency Contact:</strong><span id="dashboardEmergencyContact"></span></p>
+        <p><strong>Mother's Maiden Name:</strong><span id="dashboardmotherName"></span></p>
+        <p><strong>Father's Name:</strong><span id="dashboardfatherName"></span></p>
+        <p><strong>Religion:</strong><span id="dashboardReligion"></span></p>
+        <p><strong>Blood Type:</strong><span id="dashboardBloodType"></span></p>
+        <p><strong>Enrollment Status:</strong> <span id="dashboardEnrollmentStatus"></span></p>
+        <p><strong>Year Level:</strong> <span id="dashboardYearLevel"></span></p>
+        <p><strong>Program of Study:</strong> <span id="dashboardProgram"></span></p>
+        <p><strong>Academic Records:</strong></p>
+        <pre id="dashboardAcademicRecords"></pre>
+        <p><strong>Behavioral Information:</strong></p>
+        <pre id="dashboardBehavioralInfo"></pre>
+        <p><strong>Extracurricular Activities:</strong></p>
+        <pre id="dashboardExtracurricular"></pre>
+        <p><strong>Support and Intervention Data:</strong></p>
+        <pre id="dashboardSupportData"></pre>
+        <button id="logout">Logout</button>
+    </div>
+
+    <script>
+        const studentData = JSON.parse(sessionStorage.getItem('studentData'));
+        if (studentData) {
+            document.getElementById('studentName').textContent = studentData.fullName || "Unknown";
+            document.getElementById('dashboardStudentId').textContent = studentData.studentId || "N/A";
+            document.getElementById('dashboardDob').textContent = studentData.dateOfbirth || "N/A";
+            document.getElementById('dashboardHeight').textContent = `${studentData.height || "N/A"} cm`;
+            document.getElementById('dashboardWeight').textContent = `${studentData.weight || "N/A"} kg`;
+            document.getElementById('dashboardGender').textContent = studentData.gender || "N/A";
+            document.getElementById('dashboardNationality').textContent = studentData.nationality || "N/A";
+            document.getElementById('dashboardAddress').textContent = `${studentData.currentAddress || "N/A"}, ${studentData.permanentAddress || "N/A"}`;
+            document.getElementById('dashboardCivilStatus').textContent = studentData.civilStatus || "N/A";
+            document.getElementById('dashboardContactInformation').textContent = studentData.contactInformation || "N/A";
+            document.getElementById('dashboardEmergencyContact').textContent = studentData.emergencyContact || "N/A";
+            document.getElementById('dashboardmotherName').textContent = studentData.motherName || "N/A";
+            document.getElementById('dashboardfatherName').textContent = studentData.fatherName || "N/A";
+            document.getElementById('dashboardReligion').textContent = studentData.religion || "N/A";
+            document.getElementById('dashboardBloodType').textContent = studentData.bloodType || "N/A";
+            document.getElementById('dashboardEnrollmentStatus').textContent = studentData.enrollmentStatus || "N/A";
+            document.getElementById('dashboardYearLevel').textContent = studentData.yearLevel || "N/A";
+            document.getElementById('dashboardProgram').textContent = studentData.programOfStudy || "N/A";
+            document.getElementById('dashboardAcademicRecords').textContent = studentData.academicRecords || "No records available.";
+            document.getElementById('dashboardBehavioralInfo').textContent = studentData.behavioralInfo || "No information available.";
+            document.getElementById('dashboardExtracurricular').textContent = studentData.extracurricularActivities || "No activities listed.";
+            document.getElementById('dashboardSupportData').textContent = studentData.supportData || "No data available.";
+        } else {
+            alert("No student data found. Please log in.");
+            window.location.href = 'index.html'; // Redirect to login page
+        }
+
+        document.getElementById('logout').addEventListener('click', () => {
+            sessionStorage.clear();
+            window.location.href = 'index.html'; // Redirect to login page
+        });
+    </script>
+</body>
+</html>

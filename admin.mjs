@@ -29,6 +29,13 @@ const motherNameInput = document.getElementById('motherName');
 const fatherNameInput = document.getElementById('fatherName');
 const religionInput = document.getElementById('religion');
 const bloodTypeInput = document.getElementById('bloodType');
+const enrollmentStatusInput = document.getElementById('enrollmentStatus');
+const yearLevelInput = document.getElementById('yearLevel');
+const programOfStudyInput = document.getElementById('programOfStudy');
+const academicRecordsInput = document.getElementById('academicRecords');
+const behavioralInfoInput = document.getElementById('behavioralInfo');
+const extracurricularActivitiesInput = document.getElementById('extracurricularActivities');
+const supportDataInput = document.getElementById('supportData');
 const outputDiv = document.getElementById('output');
 
 document.getElementById('search').addEventListener('click', async () => {
@@ -57,6 +64,13 @@ document.getElementById('search').addEventListener('click', async () => {
             fatherNameInput.value = data.fatherName || '';
             religionInput.value = data.religion || '';
             bloodTypeInput.value = data.bloodType || '';
+            enrollmentStatusInput.value = data.enrollmentStatus || '';
+            yearLevelInput.value = data.yearLevel || '';
+            programOfStudyInput.value = data.programOfStudy || '';
+            academicRecordsInput.value = data.academicRecords || '';
+            behavioralInfoInput.value = data.behavioralInfo || '';
+            extracurricularActivitiesInput.value = data.extracurricularActivities || '';
+            supportDataInput.value = data.supportData || '';
             outputDiv.textContent = "Student data loaded.";
         } else {
             outputDiv.textContent = "No such document!";
@@ -91,7 +105,15 @@ document.getElementById('update').addEventListener('click', async () => {
             motherName: motherNameInput.value,
             fatherName: fatherNameInput.value,
             religion: religionInput.value,
-            bloodType: bloodTypeInput.value
+            bloodType: bloodTypeInput.value,
+            enrollmentStatus: enrollmentStatusInput.value,
+            yearLevel: yearLevelInput.value,
+            programOfStudy: programOfStudyInput.value,
+            academicRecords: academicRecordsInput.value,
+            behavioralInfo: behavioralInfoInput.value,
+            extracurricularActivities: extracurricularActivitiesInput.value,
+            supportData: supportDataInput.value,
+
         });
         outputDiv.textContent = "Student data updated successfully.";
     } catch (e) {

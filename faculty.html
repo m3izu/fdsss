@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"></script>
+</head>
+<body>
+    <div id="facultySearch">
+        <input type="text" id="searchId" placeholder="Enter Student ID to search">
+        <button id="search">Search</button>
+    </div>
+
+<div id="form">
+    <h3>Edit Student Details</h3>
+    <input type="text" id="enrollmentStatus" placeholder="Enrollment Status">
+    <input type="text" id="yearLevel" placeholder="Year Level">
+    <input type="text" id="programofStudy" placeholder="Program of Study">
+    <input type="text" id="GPA" placeholder="Cumulative GPA">
+    <textarea id="behaviouralAssessment" placeholder="Behavioural Assessment"></textarea>
+    <textarea id="behaviouralIncident" placeholder="Behavioural Incident"></textarea>
+    <textarea id="yearLevel" placeholder="Year Level"></textarea>
+    <textarea id="feedBack" placeholder="Feedback/Comments"></textarea>
+    <button id="update">Edit</button>
+
+
+</div>
+<div id="output"></div>
+<script type="module" src="faculty.mjs"></script>
+</body>
+</html>
