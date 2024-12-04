@@ -6,33 +6,29 @@
     <title>Student Portal</title>
     <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-        #loginForm {
-            margin: 20px;
-        }
-        #dashboard {
-            display: none;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>Vonmar and Friends University</h1>
-    <h3>Welcome to the Student Portal</h3>
-
-    <div id="loginForm">
-        <input type="text" id="loginStudentId" placeholder="Enter Student Number">
-        <button id="login">Login</button>
-        <p>
-            <small>New Student? <a href="studentSignUp.html">Sign up here</a></small>
-        </p>
+    <div id="head">
+        <div id="intro">
+            <h4 id="vfu">Vonmar and Friends University</h1>
+            <h5 id="welcome">Welcome to the Student Portal</h3>
+        </div>
     </div>
-
+    <div id="paper">
+        <div id="loginForm">
+            <input type="text" id="loginStudentId" placeholder="Enter Student Number">
+            <button id="login">Login</button>
+            <p>
+                <small>New Student? <a href="studentSignUp.html">Sign up here</a></small>
+            </p>
+        </div>
+    </div>
+    <div id="foot">
+        <div id="creds">
+            <p>Credits and chuchu</p>
+        </div>
+    </div>
     <script type="module" src="index.mjs"></script>
 </body>
 </html>
