@@ -32,10 +32,8 @@ document.getElementById('login').addEventListener('click', async () => {
 
         if (docSnap.exists()) {
             const data = docSnap.data();
-            // Store student data in sessionStorage or pass via query string
             sessionStorage.setItem('studentData', JSON.stringify(data));
 
-            // Redirect to the dashboard page
             window.location.href = 'dashboard.html';
         } else {
             alert("Student record not found.");

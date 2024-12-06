@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+body {
+    font-family: 'Press Start 2P', sans-serif;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    background-color: #C1681A;
+    padding: 0px 10px 0px 40px;
+    border-color: #343434;
+    border-width: 0px 0px 8px 0px;
+    border-style: solid;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logout {
+    width: 106px; 
+    height: 38px; 
+    background-color: #FFDFBF; 
+    border-radius: 33px;
+    top: -1096px;
+    left: 290px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-color: #343434;
+    border-style: solid;
+}
+
+.lg {
+    width: 96px;
+    height: 10px;
+    top: 39px;
+    left: 1799px;
+    font-weight: 400;
+    font-size: 10px;
+    align-self: center;
+    line-height: 10px;
+    color: #C1681A;
+}
+
+.pfps {
+    width: 72px;
+    height: 72px;
+    top: -1113px;
+    left: -1487px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.information {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainInfo {
+    border-color: #343434;
+    border-style: solid;
+    border-width: 9px;
+    background-color: #FFDFBF;
+    width: 1475px;
+    height: 715px;
+    top: 176px;
+    left: 359px;
+    flex: 1;
+    
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex: 0 0 320px;
+
+}
+.footer {
+    display: flex;
+    background-color: #C1681A;
+    padding: 0px 10px 0px 40px;
+    border-color: #343434;
+    border-width: 8px 0px 0px 0px;
+    border-style: solid;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.supportandinterventionData {
+    width: 320px;
+    height: 126px;
+    top: 176px;
+    left: 48px;
+    border-style: solid;
+    border-color: #343434;
+    display: flex;
+    border-width: 9px 0px 9px 9px;
+    background-color: #FFDFBF;
+    
+}
+
+.noselect {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.personalInformation {
+    width: 309px;
+    height: 102px;
+    top: 293px;
+    left: 59px;
+    border-style: solid;
+    border-color: #343434;
+    display: flex;
+    border-width: 9px 0px 0px 9px;
+    background-color: #FFDFBF;
+}
+
+.behavioralInformation {
+    width: 309px;
+    height: 102px;
+    top: 293px;
+    left: 59px;
+    border-style: solid;
+    border-color: #343434;
+    display: flex;
+    border-width: 0px 0px 9px 9px;
+    background-color: #FFDFBF;
+}
+
+.academicInformation {
+    width: 309px;
+    height: 102px;
+    top: 293px;
+    left: 59px;
+    border-style: solid;
+    border-color: #343434;
+    display: flex;
+    border-width: 9px 0px 9px 9px;
+    background-color: #FFDFBF;
+}
+
+.extracurricularActivities {
+    width: 309px;
+    height: 102px;
+    top: 293px;
+    left: 59px;
+    border-style: solid;
+    border-color: #343434;
+    display: flex;
+    border-width: 0px 0px 0px 9px;
+    background-color: #FFDFBF;
+}
+
+.information1 {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.textchoice {
+    width: 280px;
+    height: 48px;
+    font-weight: 400;
+    font-size: 24px;
+    color: #C1681A;
+    text-align: center;
+    margin: auto;
+    padding-right: 10px;
+    padding-bottom: 15px;
+}
+
+.textchoice1 {
+    width: 280px;
+    height: 32px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #C1681A;
+    text-align: center;
+    margin: auto;
+}
