@@ -70,12 +70,12 @@
             document.getElementById('dashboardExtracurricular').textContent = studentData.extracurricularActivities || "No activities listed.";
         } else {
             alert("No students data found. Please log in.");
-            window.location.href = 'landing.html';
+            window.location.href = 'index.html';
         }
 
         document.getElementById('logout').addEventListener('click', () => {
             sessionStorage.clear();
-            window.location.href = 'landing.html';
+            window.location.href = 'index.html';
         });
     </script>
 </body>
