@@ -3,30 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal</title>
-    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"></script>
-    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="landing.css">
 </head>
 <body>
-    <div id="head">
-        <div id="intro">
-            <h4 id="vfu">Vonmar and Friends University</h1>
-            <h5 id="welcome">Welcome to the Student Portal</h3>
+    <div class="header">
+    
+        <h4 class="vfu">Vonmar and Friends University</h4>
+
+    </div>
+    
+    <div class="mid">
+        <div class="left">
+        
+        </div>
+
+        <div class="mainInfo">
+            <div class="welLogo">
+                <div class="welBox">
+                    <h1 class="wel">Welcome!</h1>
+                </div>
+                <div class="logow">
+                    <img alt="marielIloveyou" src="Christmas.png">
+                </div>
+
+            </div>
+            
+            <div class="loginBox">
+                <div class="inputLogin">
+                    <input type="text" id="loginStudentId" placeholder="Enter Student Number">
+                    <button id="login">Login</button>
+                </div>
+                <div class="singupButton">
+
+                </div>
+                <div id="logout">
+                    <p class="lg">
+                        Logout
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
         </div>
     </div>
-    <div id="paper">
-        <div id="loginForm">
-            <input type="text" id="loginStudentId" placeholder="Enter Student Number">
-            <button id="login">Login</button>
-            <p>
-                <small>New Student? <a href="studentSignUp.html">Sign up here</a></small>
-            </p>
-        </div>
-    </div>
-    <div id="foot">
-        <div id="creds">
-            <p>Credits and chuchu</p>
+
+    <div class="footer">
+        <div class="credits">
+        
         </div>
     </div>
     <script type="module" src="index.mjs"></script>
