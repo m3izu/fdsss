@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vonmar and Friends University</title>
+    <link rel="stylesheet" href="dashboard4.css">
+</head>
+<body>
+    <div class="header">
+        <div class="pfp">
+            <img class="pfps" src="propayl.png" alt="iloveyoumariel" width="500" height="600">
+        </div>
+        <h4 class="vfu">Vonmar and Friends University</h4>
+        <div id="logout">
+            <p class="lg">
+                Logout
+            </p>
+        </div>
+    </div>
+    <div class="information">
+        <div class="information1">
+            <div class="column">
+                <div class="personalInformation" onclick="window.location.href='dashboard.html'">
+                    <p class="textchoice1">
+                        Personal Information
+                    </p>
+                </div>
+                    <div class="academicInformation" onclick="window.location.href='dashboard1.html'">
+                        <p class="textchoice1">
+                            Academic Information
+                        </p>
+                    </div>
+                
+                    <div class="behavioralInformation" onclick="window.location.href='dashboard2.html'">
+                        <p class="textchoice1">
+                            Behavioral Information
+                        </p>
+                    </div>
+                    <div class="extracurricularActivities" onclick="window.location.href='dashboard3.html'">
+                        <p class="textchoice1">
+                            Extracurricular Activities
+                        </p>
+                    </div>
+                    <div class="supportandinterventionData">
+                        <p class="textchoice">
+                            Support and Intervention Data
+                        </p>
+                    </div>
+            </div>
+        
+            <div class="mainInfo">
+                <p><strong>Support and Intervention Data:</strong></p>
+                <pre id="dashboardSupportData"></pre>
+            </div>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <div class="credits">
+            <p>Hello</p>
+        </div>
+    </div>
+
+    <script>
+        const studentData = JSON.parse(sessionStorage.getItem('studentData'));
+        if (studentData) {
+            document.getElementById('dashboardSupportData').textContent = studentData.supportData || "No data available.";
+        } else {
+            alert("No students data found. Please log in.");
+            window.location.href = 'landing.html';
+        }
+
+        document.getElementById('logout').addEventListener('click', () => {
+            sessionStorage.clear();
+            window.location.href = 'landing.html';
+        });
+    </script>
+
+</body>
+</html>

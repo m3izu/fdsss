@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vonmar and Friends University</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="header">
+        <div class="pfp">
+            <img class="pfps" src="propayl.png" alt="iloveyoumariel" width="500" height="600">
+        </div>
+        <h4 class="vfu">Vonmar and Friends University</h4>
+        <div id="logout">
+            <p class="lg">
+                Logout
+            </p>
+        </div>
+    </div>
+    <div class="information">
+        <div class="information1">
+            <div class="column">
+                <div class="personalInformation">
+                    <p class="textchoice">
+                        Personal Information
+                    </p>
+                </div>
+                <div class="noselect">
+                    <div class="academicInformation" onclick="window.location.href='dashboard1.html'">
+                        <p class="textchoice1">
+                            Academic Information
+                        </p>
+                    </div>
+                    <div class="behavioralInformation" onclick="window.location.href='dashboard2.html'">
+                        <p class="textchoice1">
+                            Behavioral Information
+                        </p>
+                    </div>
+                    <div class="extracurricularActivities" onclick="window.location.href='dashboard3.html'">
+                        <p class="textchoice1">
+                            Extracurricular Activities
+                        </p>
+                    </div>
+                    <div class="supportandinterventionData" onclick="window.location.href='dashboard4.html'">
+                        <p class="textchoice1">
+                            Support and Intervention Data
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="mainInfo">
+                <div class="containerInfo">   
+                    <h2 class="welc">Welcome, <span id="studentName"></span>!</h2>
+                    <div class="infoCont">
+                        <div class="columnInfo">    
+                            <p><strong>Student ID:</strong> <span id="dashboardStudentId"></span></p>
+                            <p><strong>Date of Birth:</strong> <span id="dashboardDob"></span></p>
+                            <p><strong>Height:</strong> <span id="dashboardHeight"></span></p>
+                            <p><strong>Weight:</strong> <span id="dashboardWeight"></span></p>
+                            <p><strong>Gender:</strong> <span id="dashboardGender"></span></p>
+                            <p><strong>Nationality:</strong> <span id="dashboardNationality"></span></p>
+                            <p><strong>Address:</strong> <span id="dashboardAddress"></span></p>
+                        </div> 
+                        <div class="columnInfo">
+                            <p><strong>Civil Status:</strong> <span id="dashboardCivilStatus"></span></p>
+                            <p><strong>Contact Information:</strong> <span id="dashboardContactInformation"></span></p>
+                            <p><strong>Emergency Contact:</strong><span id="dashboardEmergencyContact"></span></p>
+                            <p><strong>Mother's Maiden Name:</strong><span id="dashboardmotherName"></span></p>
+                            <p><strong>Father's Name:</strong><span id="dashboardfatherName"></span></p>
+                            <p><strong>Religion:</strong><span id="dashboardReligion"></span></p>
+                            <p><strong>Blood Type:</strong><span id="dashboardBloodType"></span></p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <div class="credits">
+            <p>Hello</p>
+        </div>
+    </div>
+
+    <script>
+        const studentData = JSON.parse(sessionStorage.getItem('studentData'));
+        if (studentData) {
+            document.getElementById('studentName').textContent = studentData.fullName || "Unknown";
+            document.getElementById('dashboardStudentId').textContent = studentData.studentId || "N/A";
+            document.getElementById('dashboardDob').textContent = studentData.dateOfbirth || "N/A";
+            document.getElementById('dashboardHeight').textContent = `${studentData.height || "N/A"} cm`;
+            document.getElementById('dashboardWeight').textContent = `${studentData.weight || "N/A"} kg`;
+            document.getElementById('dashboardGender').textContent = studentData.gender || "N/A";
+            document.getElementById('dashboardNationality').textContent = studentData.nationality || "N/A";
+            document.getElementById('dashboardAddress').textContent = `${studentData.currentAddress || "N/A"}, ${studentData.permanentAddress || "N/A"}`;
+            document.getElementById('dashboardCivilStatus').textContent = studentData.civilStatus || "N/A";
+            document.getElementById('dashboardContactInformation').textContent = studentData.contactInformation || "N/A";
+            document.getElementById('dashboardEmergencyContact').textContent = studentData.emergencyContact || "N/A";
+            document.getElementById('dashboardmotherName').textContent = studentData.motherName || "N/A";
+            document.getElementById('dashboardfatherName').textContent = studentData.fatherName || "N/A";
+            document.getElementById('dashboardReligion').textContent = studentData.religion || "N/A";
+            document.getElementById('dashboardBloodType').textContent = studentData.bloodType || "N/A";
+        } else {
+            alert("No students data found. Please log in.");
+            window.location.href = 'landing.html';
+        }
+
+        document.getElementById('logout').addEventListener('click', () => {
+            sessionStorage.clear();
+            window.location.href = 'landing.html';
+        });
+    </script>
+</body>
+</html>
