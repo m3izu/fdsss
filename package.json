@@ -1,4 +1,8 @@
+
 {
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "type": "module",  // Add this for ES module support
   "dependencies": {
     "mysql2": "^3.11.5"
   }

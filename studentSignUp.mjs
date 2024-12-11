@@ -82,3 +82,45 @@ async function fetchData() {
 
 
 fetchData();
+
+
+document.getElementById('submit').addEventListener('click', async () => {
+    const studentData = {
+        studentId: document.getElementById('studentId').value,
+        fullName: document.getElementById('fullName').value,
+        dateOfbirth: document.getElementById('dateOfbirth').value,
+        height: document.getElementById('height').value,
+        weight: document.getElementById('weight').value,
+        gender: document.getElementById('gender').value,
+        nationality: document.getElementById('nationality').value,
+        currentAddress: document.getElementById('currentAddress').value,
+        permanentAddress: document.getElementById('permanentAddress').value,
+        civilStatus: document.getElementById('civilStatus').value,
+        contactInformation: document.getElementById('contactInformation').value,
+        emergencyContact: document.getElementById('emergencyContact').value,
+        motherName: document.getElementById('motherName').value,
+        fatherName: document.getElementById('fatherName').value,
+        religion: document.getElementById('religion').value,
+        bloodType: document.getElementById('bloodType').value,
+    };
+
+    try {
+        const response = await fetch('https://your-vercel-project.vercel.app/api/handleStudentSignUp', {
+            method: 'POST', // Ensure POST method
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(studentData),
+        });
+        
+        const result = await response.json();
+        if (response.ok) {
+            console.log(result.message);
+            alert('Student record successfully added');
+        } else {
+            console.error(result.message);
+            alert('Error adding student record');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error submitting the form');
+    }
+});
