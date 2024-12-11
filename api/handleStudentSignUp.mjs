@@ -2,10 +2,10 @@ import mysql from 'mysql2/promise';
 
 // Configure your database connection
 const pool = mysql.createPool({
-    host: 35.240.198.199,        // Replace with your Cloud SQL instance IP or hostname
-    user: admin,        // Replace with your database username
-    password: admin,// Replace with your database password
-    database: fds,    // Replace with your database name
+    host: process.env.DB_HOST,        // Replace with your Cloud SQL instance IP or hostname
+    user: process.env.DB_USER,        // Replace with your database username
+    password: process.env.DB_PASSWORD,// Replace with your database password
+    database: process.env.DB_NAME,    // Replace with your database name
 });
 
 export default async function handler(req, res) {
