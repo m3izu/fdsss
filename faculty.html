@@ -64,23 +64,22 @@
     </div>
 
     <script>
-        const studentData = JSON.parse(sessionStorage.getItem('studentData'));
-        if (studentData) {
-            document.getElementById('studentName').textContent = studentData.fullName || "Unknown";
-            document.getElementById('dashboardStudentId').textContent = studentData.studentId || "N/A";
-            document.getElementById('dashboardDob').textContent = studentData.dateOfbirth || "N/A";
-            document.getElementById('dashboardHeight').textContent = `${studentData.height || "N/A"} cm`;
-            document.getElementById('dashboardWeight').textContent = `${studentData.weight || "N/A"} kg`;
-            document.getElementById('dashboardGender').textContent = studentData.gender || "N/A";
-            document.getElementById('dashboardNationality').textContent = studentData.nationality || "N/A";
-            document.getElementById('dashboardAddress').textContent = `${studentData.currentAddress || "N/A"}, ${studentData.permanentAddress || "N/A"}`;
-            document.getElementById('dashboardCivilStatus').textContent = studentData.civilStatus || "N/A";
-            document.getElementById('dashboardContactInformation').textContent = studentData.contactInformation || "N/A";
-            document.getElementById('dashboardEmergencyContact').textContent = studentData.emergencyContact || "N/A";
-            document.getElementById('dashboardmotherName').textContent = studentData.motherName || "N/A";
-            document.getElementById('dashboardfatherName').textContent = studentData.fatherName || "N/A";
-            document.getElementById('dashboardReligion').textContent = studentData.religion || "N/A";
-            document.getElementById('dashboardBloodType').textContent = studentData.bloodType || "N/A";
+        const facultyData = JSON.parse(sessionStorage.getItem('facultyData'));
+        if (facultyData) {
+            document.getElementById('studentName').textContent = facultyData.fullName || "Unknown";
+            document.getElementById('dashboardStudentId').textContent = facultyData.facultyId || "N/A";
+            document.getElementById('dashboardDob').textContent = facultyData.position || "N/A";
+            document.getElementById('dashboardHeight').textContent = `${facultyData.department || "N/A"} cm`;
+            document.getElementById('dashboardGender').textContent = facultyData.qualifications || "N/A";
+            document.getElementById('dashboardNationality').textContent = facultyData.employeeStatus || "N/A";
+            document.getElementById('dashboardAddress').textContent = `${facultyData.yearofService || "N/A"}`;
+            document.getElementById('dashboardCivilStatus').textContent = facultyData.civilStatus || "N/A";
+            document.getElementById('dashboardContactInformation').textContent = facultyData.contactInformation || "N/A";
+            document.getElementById('dashboardEmergencyContact').textContent = facultyData.emergencyContact || "N/A";
+            document.getElementById('dashboardmotherName').textContent = facultyData.motherName || "N/A";
+            document.getElementById('dashboardfatherName').textContent = facultyData.fatherName || "N/A";
+            document.getElementById('dashboardReligion').textContent = facultyData.religion || "N/A";
+            document.getElementById('dashboardBloodType').textContent = facultyData.bloodType || "N/A";
         } else {
             alert("No students data found. Please log in.");
         }

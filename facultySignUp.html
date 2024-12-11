@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vonmar and Friends University</title>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #form { margin: 20px; }
+        #output { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>New Student Signup</h1>
+    <div id="form">
+        <input type="number" id="facultyId" placeholder="Employee ID">
+        <input type="text" id="fullName" placeholder="Full Name">
+        <input type="text" id="position" placeholder="Position/Title">
+        <input type="text" id="department" placeholder="Department or Program">
+        <input type="text" id="qualifications" placeholder="Qualifications">
+        <label for="employeeStatus">Employee Status:</label>
+        <select id="employeeStatus" name="employeeStatus">
+            <option value="fullTime">Full Time</option>
+            <option value="partTime">Part Time</option>
+            <option value="adjunct">adjunct</option>
+        </select>
+        <input type="number" id="yearofService" placeholder="Year of Service">
+        <button id="submit">Submit</button>
+    </div>
+    <div id="output"></div>
+    <script type="module" src="facultySignUp.mjs"></script>
+</body>
+</html>

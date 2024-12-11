@@ -87,7 +87,7 @@
     </div>
 
     <script>
-        const studentData = JSON.parse(sessionStorage.getItem('studentData'));
+        const studentData = JSON.parse(sessionStorage.getItem('facultyData'));
         if (studentData) {
             document.getElementById('studentName').textContent = studentData.fullName || "Unknown";
             document.getElementById('dashboardStudentId').textContent = studentData.studentId || "N/A";
@@ -105,7 +105,7 @@
             document.getElementById('dashboardReligion').textContent = studentData.religion || "N/A";
             document.getElementById('dashboardBloodType').textContent = studentData.bloodType || "N/A";
         } else {
-            alert("No students data found. Please log in.");
+            alert("No faculty data found. Please log in.");
         }
 
         document.getElementById('logout').addEventListener('click', () => {

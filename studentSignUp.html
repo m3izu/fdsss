@@ -16,18 +16,31 @@
     <h1>New Student Signup</h1>
     <h5>Note: You will not be able to edit information with asterisk*</h5>
     <div id="form">
-        <input type="text" id="studentId" placeholder="Student ID*">
+        <input type="number" id="studentId" placeholder="Student ID*">
         <input type="text" id="fullName" placeholder="Full Name*">
-        <input type="text" id="dateOfbirth" placeholder="Date of Birth*">
-        <input type="text" id="height" placeholder="Height (cm)">
-        <input type="text" id="weight" placeholder="Weight (kg)">
-        <input type="text" id="gender" placeholder="Gender*">
+        <input type="date" id="dateOfbirth" placeholder="Date of Birth*">
+        <input type="number" id="height" placeholder="Height (cm)">
+        <input type="number" id="weight" placeholder="Weight (kg)">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="prefernottoSay">Prefer not to Say</option>
+            <option value="others">Others</option>
+        </select>
         <input type="text" id="nationality" placeholder="Nationality">
         <input type="text" id="currentAddress" placeholder="Current Address">
         <input type="text" id="permanentAddress" placeholder="Permanent Address">
-        <input type="text" id="civilStatus" placeholder="Civil Status">
+        <label for="civilStatus">Choose a fruit:</label>
+        <select id="civilStatus" name="civilStatus">
+            <option value="married">Married</option>
+            <option value="single">Single</option>
+            <option value="prefernottoSay">Prefer not to Say</option>
+            <option value="widowed">Widowed</option>
+            <option value="cheater">Cheater</option>
+        </select>
         <input type="text" id="contactInformation" placeholder="Contact Information (email)">
-        <input type="text" id="emergencyContact" placeholder="Emergency Contact No">
+        <input type="number" id="emergencyContact" placeholder="Emergency Contact No">
         <input type="text" id="motherName" placeholder="Mother's Maiden Name">
         <input type="text" id="fatherName" placeholder="Father's Name">
         <input type="text" id="religion" placeholder="Religion">
