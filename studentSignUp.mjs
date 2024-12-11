@@ -81,6 +81,50 @@ async function fetchData() {
 }
 
 
+
+
+import mysql from 'mysql2/promise';
+
+// Connect to Cloud SQL using environment variables
+const pool = mysql.createPool({
+    host: process.env.DB_HOST,         // Public or Private IP (e.g., '127.0.0.1' for public IP or 'localhost' for Cloud SQL Auth Proxy)
+    user: process.env.DB_USER,         // Database username (e.g., 'db_user')
+    password: process.env.DB_PASSWORD, // Database password (e.g., 'db_password')
+    database: process.env.DB_NAME      // Database name (e.g., 'student_management')
+});
+
+export default async function handler(req, res) {
+    if (req.method === 'POST') {
+        const { studentId, fullName, dateOfbirth, height, weight, gender, nationality, 
+            currentAddress, permanentAddress, civilStatus, contactInformation, emergencyContact, 
+            motherName, fatherName, religion, bloodType } = req.body;
+
+        try {
+            const query = `
+                INSERT INTO students (studentId, fullName, dateOfbirth, height, weight, gender, nationality, 
+                currentAddress, permanentAddress, civilStatus, contactInformation, emergencyContact, motherName, 
+                fatherName, religion, bloodType)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+            const values = [studentId, fullName, dateOfbirth, height, weight, gender, nationality, currentAddress, 
+                permanentAddress, civilStatus, contactInformation, emergencyContact, motherName, fatherName, religion, bloodType];
+            
+            await pool.query(query, values);
+            res.status(200).json({ message: 'Student record successfully added' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'Error adding student record' });
+        }
+    } else {
+        res.status(405).json({ message: 'Method Not Allowed' });
+    }
+}
+
+
+
+
+
+
 fetchData();
 
 
