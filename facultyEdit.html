@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vonmar and Friends University</title>
+    <link rel="stylesheet" href="facultyEdit.css">
+</head>
+<body>
+    <div class="header">
+        <div class="pfp">
+            <img class="pfps" src="propayl.png" alt="iloveyoumariel" width="500" height="600">
+        </div>
+        <h4 class="vfu">Vonmar and Friends University</h4>
+        <div id="logout">
+            <p class="lg">
+                Logout
+            </p>
+        </div>
+    </div>
+    <div class="information">
+        <div class="information1">
+            <div class="column">
+                <div class="personalInformation" onclick="window.location.href='faculty.html'">
+                    <p class="textchoice">
+                        Faculty Information
+                    </p>
+                </div>
+                <div class="noselect">
+                    <div class="academicInformation" >
+                        <p class="textchoice1">
+                            Interaction and Engagement
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        
+            <div class="mainInfo">
+                <div class="containerInfo">   
+                    <h2 class="welc">Welcome, <span id="studentName"></span>!</h2>
+                    <div class="infoCont">
+                        <div class="columnInfo">    
+                            <h1>Admin - Edit Student Info</h1>
+                            <div>
+                            <input type="text" id="searchId" placeholder="Enter Student ID to Search">
+                            <button id="search">Search</button>
+                            </div>
+                            <div id="form">
+                                <h3>Edit Student Details</h3>
+                                <input type="text" id="academicRecords" placeholder="Academic Records">
+                                <label for="yearLevel">Year Level:</label>
+                                <select id="yearLevel" name="yearLevel">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="Irregular">Irregular</option>
+                                </select>
+                                <label for="enrollmentStatus">Enrollment Status:</label>
+                                <select id="enrollmentStatus" name="Enrollment Status">
+                                <option value="active">Active</option>
+                                <option value="withdrawn">Withdrawn</option>
+                                <option value="graduated">Graduated</option>
+                                <option value="expelled">Expelled</option>
+                                <option value="onleave">On Leave</option>
+                                </select>
+
+                                <input type="text" id="programOfStudy" placeholder="Program of Study">
+                                <button id="update">Update</button>
+                            </div>
+                            <div id="output"></div>
+                            </div> 
+                        <div class="columnInfo">
+                            
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <div class="credits">
+            <p>Hello</p>
+        </div>
+    </div>
+
+    <script>
+        const studentData = JSON.parse(sessionStorage.getItem('studentData'));
+        if (studentData) {
+            document.getElementById('studentName').textContent = studentData.fullName || "Unknown";
+            document.getElementById('dashboardStudentId').textContent = studentData.studentId || "N/A";
+            document.getElementById('dashboardDob').textContent = studentData.dateOfbirth || "N/A";
+            document.getElementById('dashboardHeight').textContent = `${studentData.height || "N/A"} cm`;
+            document.getElementById('dashboardWeight').textContent = `${studentData.weight || "N/A"} kg`;
+            document.getElementById('dashboardGender').textContent = studentData.gender || "N/A";
+            document.getElementById('dashboardNationality').textContent = studentData.nationality || "N/A";
+            document.getElementById('dashboardAddress').textContent = `${studentData.currentAddress || "N/A"}, ${studentData.permanentAddress || "N/A"}`;
+            document.getElementById('dashboardCivilStatus').textContent = studentData.civilStatus || "N/A";
+            document.getElementById('dashboardContactInformation').textContent = studentData.contactInformation || "N/A";
+            document.getElementById('dashboardEmergencyContact').textContent = studentData.emergencyContact || "N/A";
+            document.getElementById('dashboardmotherName').textContent = studentData.motherName || "N/A";
+            document.getElementById('dashboardfatherName').textContent = studentData.fatherName || "N/A";
+            document.getElementById('dashboardReligion').textContent = studentData.religion || "N/A";
+            document.getElementById('dashboardBloodType').textContent = studentData.bloodType || "N/A";
+        } else {
+            alert("No students data found. Please log in.");
+        }
+
+        document.getElementById('logout').addEventListener('click', () => {
+            sessionStorage.clear();
+            window.location.href = 'index.html';
+        });
+    </script>
+
+<script type="module" src="faculty.mjs"></script>
+
+</body>
+</html>

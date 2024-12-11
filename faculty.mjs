@@ -13,4 +13,57 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const search
+const academicRecordsInput = document.getElementById('academicRecords');
+const yearLevelInput = document.getElementById('yearLevel');
+const enrollmentStatusInput = document.getElementById('enrollmentStatus');
+const programOfStudyInput = document.getElementById('programOfStudy');
+const searchIdInput = document.getElementById('searchId');
+const outputDiv = document.getElementById('output');
+
+document.getElementById('search').addEventListener('click', async () => {
+    const searchId = searchIdInput.value;
+    if (!searchId) {
+        outputDiv.textContent = "Please enter a Student ID to search.";
+        return;
+    }
+    try {
+        const docRef = doc(db, "students", searchId);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+            academicRecordsInput.value = data.academicRecords || '';
+            yearLevelInput.value = data.yearLevel || '';
+            enrollmentStatusInput.value = data.enrollmentStatus || '';
+            programOfStudyInput.value = data.programOfStudy || '';
+            outputDiv.textContent = "Student data loaded.";
+        } else {
+            outputDiv.textContent = "No such document!";
+        }
+    } catch (e) {
+        console.error("Error fetching document: ", e);
+        outputDiv.textContent = "Error fetching student data.";
+    }
+});
+
+document.getElementById('update').addEventListener('click', async () => {
+    const searchId = searchIdInput.value;
+    if (!searchId) {
+        outputDiv.textContent = "Please enter a Student ID to update.";
+        return;
+    }
+
+    try {
+        const docRef = doc(db, "students", searchId);
+        await updateDoc(docRef, {
+            academicRecords: academicRecordsInput.value,
+            yearLevel: yearLevelInput.value,
+            enrollmentStatus: enrollmentStatusInput.value,
+            programOfStudy: programOfStudyInput.value,
+
+        });
+        outputDiv.textContent = "Student data updated successfully.";
+    } catch (e) {
+        console.error("Error updating document: ", e);
+        outputDiv.textContent = "Error updating student data.";
+    }
+});
