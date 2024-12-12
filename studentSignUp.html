@@ -4,8 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vonmar and Friends University</title>
-    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"></script>
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+        import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Function to add personal information
+        async function addPersonalInformation(studentId, personalData) {
+            await setDoc(doc(db, "personalInformation", studentId), personalData);
+        }
+
+        // Event listener for the submit button
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('submit').addEventListener('click', async () => {
+                const studentId = document.getElementById('studentId').value;
+                const personalData = {
+                    fullName: document.getElementById('fullName').value,
+                    dateOfBirth: document.getElementById('dateOfbirth').value,
+                    height: document.getElementById('height').value,
+                    weight: document.getElementById('weight').value,
+                    gender: document.getElementById('gender').value,
+                    nationality: document.getElementById('nationality').value,
+                    currentAddress: document.getElementById('currentAddress').value,
+                    permanentAddress: document.getElementById('permanentAddress').value,
+                    civilStatus: document.getElementById('civilStatus').value,
+                    contactInformation: document.getElementById('contactInformation').value,
+                    emergencyContact: document.getElementById('emergencyContact').value,
+                    motherName: document.getElementById('motherName').value,
+                    fatherName: document.getElementById('fatherName').value,
+                    religion: document.getElementById('religion').value,
+                    bloodType: document.getElementById('bloodType').value
+                };
+
+                try {
+                    await addPersonalInformation(studentId, personalData);
+                    document.getElementById('output').innerText = "Information submitted successfully!";
+                } catch (error) {
+                    console.error("Error adding document: ", error);
+                    document.getElementById('output').innerText = "Error submitting information.";
+                }
+            });
+        });
+    </script>
     <style>
         body { font-family: Arial, sans-serif; }
         #form { margin: 20px; }
@@ -22,81 +76,31 @@
         <input type="number" id="height" placeholder="Height (cm)">
         <input type="number" id="weight" placeholder="Weight (kg)">
         <label for="gender">Gender:</label>
-        <select id="gender" name="gender">
+        <select id="gender" name ="gender">
             <option value="male">Male</option>
             <option value="female">Female</option>
-            <option value="prefernottoSay">Prefer not to Say</option>
-            <option value="others">Others</option>
+            <option value="other">Other</option>
         </select>
         <input type="text" id="nationality" placeholder="Nationality">
         <input type="text" id="currentAddress" placeholder="Current Address">
         <input type="text" id="permanentAddress" placeholder="Permanent Address">
-        <label for="civilStatus">Civil Status:</label>
-        <select id="civilStatus" name="civilStatus">
-            <option value="married">Married</option>
-            <option value="single">Single</option>
-            <option value="prefernottoSay">Prefer not to Say</option>
-            <option value="widowed">Widowed</option>
-        </select>
-        <input type="text" id="contactInformation" placeholder="Contact Information (email)">
-        <input type="number" id="emergencyContact" placeholder="Emergency Contact No">
-        <input type="text" id="motherName" placeholder="Mother's Maiden Name">
+        <input type="text" id="civilStatus" placeholder="Civil Status">
+        <input type="text" id="contactInformation" placeholder="Contact Information">
+        <input type="text" id="emergencyContact" placeholder="Emergency Contact">
+        <input type="text" id="motherName" placeholder="Mother's Name">
         <input type="text" id="fatherName" placeholder="Father's Name">
         <input type="text" id="religion" placeholder="Religion">
-        <input type="text" id="bloodType" placeholder="Blood Type*">
+        <input type="text" id="bloodType" placeholder="Blood Type">
         <button id="submit">Submit</button>
     </div>
     <div id="output"></div>
-
-    <script type="module">
-        // Firebase configuration
-        const firebaseConfig = {
-        apiKey: "AIzaSyDbezcx_H3tK4sHAofzozB5vqxg5BEyWb0",
-        authDomain: "studentprof-28799.firebaseapp.com",
-        projectId: "studentprof-28799",
-        storageBucket: "studentprof-28799.firebasestorage.app",
-        messagingSenderId: "214200989847",
-        appId: "1:214200989847:web:f5043295b2450cca6a51d2"
-        };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore(app);
-
-        // Function to add personal information
-        async function addPersonalInformation(studentId, personalData) {
-            await db.collection("personalInformation").doc(studentId).set(personalData);
-        }
-
-        // Event listener for the submit button
-        document.getElementById('submit').addEventListener('click', async () => {
-            const studentId = document.getElementById('studentId').value;
-            const personalData = {
-                fullName: document.getElementById('fullName').value,
-                dateOfBirth: document.getElementById('dateOfbirth').value,
- height: document.getElementById('height').value,
-                weight: document.getElementById('weight').value,
-                gender: document.getElementById('gender').value,
-                nationality: document.getElementById('nationality').value,
-                currentAddress: document.getElementById('currentAddress').value,
-                permanentAddress: document.getElementById('permanentAddress').value,
-                civilStatus: document.getElementById('civilStatus').value,
-                contactInformation: document.getElementById('contactInformation').value,
-                emergencyContact: document.getElementById('emergencyContact').value,
-                motherName: document.getElementById('motherName').value,
-                fatherName: document.getElementById('fatherName').value,
-                religion: document.getElementById('religion').value,
-                bloodType: document.getElementById('bloodType').value
-            };
-
-            try {
-                await addPersonalInformation(studentId, personalData);
-                document.getElementById('output').innerText = "Information submitted successfully!";
-            } catch (error) {
-                console.error("Error adding document: ", error);
-                document.getElementById('output').innerText = "Error submitting information.";
-            }
-        });
-    </script>
 </body>
-</html>
+</html> 
+
+### Key Points
+
+- Ensure that you are using `type="module"` in your `<script>` tags to allow the use of `import` statements.
+- Make sure to replace the placeholder values in the Firebase configuration with your actual Firebase project credentials.
+- The `firebase` object should be defined correctly after importing the necessary Firebase modules.
+
+By following these steps, you should be able to resolve the errors and successfully integrate Firebase into your project.
