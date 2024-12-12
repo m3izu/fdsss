@@ -31,13 +31,12 @@
         <input type="text" id="nationality" placeholder="Nationality">
         <input type="text" id="currentAddress" placeholder="Current Address">
         <input type="text" id="permanentAddress" placeholder="Permanent Address">
-        <label for="civilStatus">Choose a fruit:</label>
+        <label for="civilStatus">Civil Status:</label>
         <select id="civilStatus" name="civilStatus">
             <option value="married">Married</option>
             <option value="single">Single</option>
             <option value="prefernottoSay">Prefer not to Say</option>
             <option value="widowed">Widowed</option>
-            <option value="cheater">Cheater</option>
         </select>
         <input type="text" id="contactInformation" placeholder="Contact Information (email)">
         <input type="number" id="emergencyContact" placeholder="Emergency Contact No">
@@ -48,6 +47,56 @@
         <button id="submit">Submit</button>
     </div>
     <div id="output"></div>
-    <script type="module" src="studentSignUp.mjs"></script>
+
+    <script type="module">
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore(app);
+
+        // Function to add personal information
+        async function addPersonalInformation(studentId, personalData) {
+            await db.collection("personalInformation").doc(studentId).set(personalData);
+        }
+
+        // Event listener for the submit button
+        document.getElementById('submit').addEventListener('click', async () => {
+            const studentId = document.getElementById('studentId').value;
+            const personalData = {
+                fullName: document.getElementById('fullName').value,
+                dateOfBirth: document.getElementById('dateOfbirth').value,
+ height: document.getElementById('height').value,
+                weight: document.getElementById('weight').value,
+                gender: document.getElementById('gender').value,
+                nationality: document.getElementById('nationality').value,
+                currentAddress: document.getElementById('currentAddress').value,
+                permanentAddress: document.getElementById('permanentAddress').value,
+                civilStatus: document.getElementById('civilStatus').value,
+                contactInformation: document.getElementById('contactInformation').value,
+                emergencyContact: document.getElementById('emergencyContact').value,
+                motherName: document.getElementById('motherName').value,
+                fatherName: document.getElementById('fatherName').value,
+                religion: document.getElementById('religion').value,
+                bloodType: document.getElementById('bloodType').value
+            };
+
+            try {
+                await addPersonalInformation(studentId, personalData);
+                document.getElementById('output').innerText = "Information submitted successfully!";
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                document.getElementById('output').innerText = "Error submitting information.";
+            }
+        });
+    </script>
 </body>
 </html>
