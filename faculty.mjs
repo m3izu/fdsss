@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getFirestore, doc, getDoc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDbezcx_H3tK4sHAofzozB5vqxg5BEyWb0",
@@ -31,17 +31,11 @@ document.getElementById('search').addEventListener('click', async () => {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             const data = docSnap.data();
-            academicRecordsInput.value = '';
+            academicRecordsInput.value = data.academicRecords || '';
             yearLevelInput.value = data.yearLevel || '';
             enrollmentStatusInput.value = data.enrollmentStatus || '';
             programOfStudyInput.value = data.programOfStudy || '';
-
-            // Display the academic records if they exist
-            if (data.academicRecords && Array.isArray(data.academicRecords)) {
-                outputDiv.textContent = "Student data loaded. Academic Records: " + JSON.stringify(data.academicRecords);
-            } else {
-                outputDiv.textContent = "Student data loaded. No academic records found.";
-            }
+            outputDiv.textContent = "Student data loaded.";
         } else {
             outputDiv.textContent = "No such document!";
         }
@@ -60,22 +54,14 @@ document.getElementById('update').addEventListener('click', async () => {
 
     try {
         const docRef = doc(db, "students", searchId);
-
-        // Prepare new academic record as an object
-        const newAcademicRecord = {
-            record: academicRecordsInput.value,
+        await updateDoc(docRef, {
+            academicRecords: academicRecordsInput.value,
             yearLevel: yearLevelInput.value,
             enrollmentStatus: enrollmentStatusInput.value,
             programOfStudy: programOfStudyInput.value,
-            timestamp: new Date().toISOString(), // Add a timestamp for uniqueness and tracking
-        };
 
-        // Add the new academic record to the existing array
-        await updateDoc(docRef, {
-            academicRecords: arrayUnion(newAcademicRecord),
         });
-
-        outputDiv.textContent = "New academic record added successfully.";
+        outputDiv.textContent = "Student data updated successfully.";
     } catch (e) {
         console.error("Error updating document: ", e);
         outputDiv.textContent = "Error updating student data.";
