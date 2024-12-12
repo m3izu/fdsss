@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+import { getFirestore, doc, getDoc, updateDoc, setDoc, collection } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDbezcx_H3tK4sHAofzozB5vqxg5BEyWb0",
@@ -53,17 +53,22 @@ document.getElementById('update').addEventListener('click', async () => {
     }
 
     try {
-        const docRef = doc(db, "students", searchId);
-        await updateDoc(docRef, {
+        const academicRecordsCollection = collection(db, "academicRecords");
+
+        // Create a new document in the 'academicRecords' collection
+        const newRecordRef = doc(academicRecordsCollection); // Auto-generated document ID
+        await setDoc(newRecordRef, {
+            studentId: searchId,
             academicRecords: academicRecordsInput.value,
             yearLevel: yearLevelInput.value,
             enrollmentStatus: enrollmentStatusInput.value,
             programOfStudy: programOfStudyInput.value,
-
+            timestamp: new Date() // Optionally, you can add a timestamp to track when the record was created
         });
-        outputDiv.textContent = "Student data updated successfully.";
+
+        outputDiv.textContent = "New academic record added successfully.";
     } catch (e) {
-        console.error("Error updating document: ", e);
-        outputDiv.textContent = "Error updating student data.";
+        console.error("Error adding new academic record: ", e);
+        outputDiv.textContent = "Error adding new academic record.";
     }
 });
