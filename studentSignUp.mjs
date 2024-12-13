@@ -33,9 +33,11 @@ const fatherNameInput = document.getElementById('fatherName');
 const religionInput = document.getElementById('religion');
 const bloodTypeInput = document.getElementById('bloodType');
 const outputDiv = document.getElementById('output');
+const emconfullNameInput = document.getElementById('emconfullName');
 
 
-document.getElementById('submit').addEventListener('click', async () => {
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
     const studentId = studentIdInput.value;
     const fullName = fullNameInput.value;
     const dateOfbirth = dateOfbirthInput.value;
@@ -52,18 +54,18 @@ document.getElementById('submit').addEventListener('click', async () => {
     const fatherName = fatherNameInput.value;
     const religion = religionInput.value;
     const bloodType = bloodTypeInput.value;
-   
+    const emconfullName = emconfullNameInput.value;
     
     
 
     if (studentId && fullName && dateOfbirth && height && weight && gender && nationality 
         && currentAddress && permanentAddress && civilStatus && contactInformation && emergencyContact 
-        && motherName && fatherName && religion && bloodType) {
+        && motherName && fatherName && religion && bloodType && emconfullName) {
         try {
             // Add data to Firestore
-            await setDoc(doc(db, "students", studentId), { studentId, fullName, dateOfbirth, height, weight, gender, nationality, 
+            await setDoc(doc(db, "students", studentId), { studentId, fullName, dateOfbirth, height:height * 1, weight, gender, nationality, 
                 currentAddress, permanentAddress, civilStatus, contactInformation, 
-                emergencyContact, motherName, fatherName, religion, bloodType});
+                emergencyContact, motherName, fatherName, religion, bloodType, emconfullName});
             outputDiv.textContent = `Data added`;
         } catch (e) {
             console.error("Error adding document: ", e);

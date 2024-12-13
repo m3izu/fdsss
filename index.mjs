@@ -3,6 +3,7 @@ import {
   getFirestore,
   doc,
   getDoc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 
 const firebaseConfig = {

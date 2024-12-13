@@ -15,23 +15,24 @@
 <body>
     <h1>New Student Signup</h1>
     <h5>Note: You will not be able to edit information with asterisk*</h5>
-    <div id="form">
-        <input type="number" id="studentId" placeholder="Student ID*">
-        <input type="text" id="fullName" placeholder="Full Name*">
-        <input type="date" id="dateOfbirth" placeholder="Date of Birth*">
-        <input type="number" id="height" placeholder="Height (cm)">
-        <input type="number" id="weight" placeholder="Weight (kg)">
+    <form id="form">
+        <input type="number" id="studentId" placeholder="Student ID*" required>
+        <input type="text" id="fullName" placeholder="Full Name*" required>
+        <input type="date" id="dateOfbirth" placeholder="Date of Birth*" required>
+        <input type="number" id="height" placeholder="Height (cm)" required>
+        <input type="number" id="weight" placeholder="Weight (kg)" required>
+        <input type="text" id="emconfullName" placeholder="Emergency Contact Full Name" required>
         <label for="gender">Gender:</label>
-        <select id="gender" name="gender">
+        <select id="gender" name="gender"  required>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="prefernottoSay">Prefer not to Say</option>
             <option value="others">Others</option>
         </select>
-        <input type="text" id="nationality" placeholder="Nationality">
-        <input type="text" id="currentAddress" placeholder="Current Address">
-        <input type="text" id="permanentAddress" placeholder="Permanent Address">
-        <label for="civilStatus">Choose a fruit:</label>
+        <input type="text" id="nationality" placeholder="Nationality" required>
+        <input type="text" id="currentAddress" placeholder="Current Address" required>
+        <input type="text" id="permanentAddress" placeholder="Permanent Address" required>
+        <label for="civilStatus" required>Choose a fruit:</label>
         <select id="civilStatus" name="civilStatus">
             <option value="married">Married</option>
             <option value="single">Single</option>
@@ -45,8 +46,8 @@
         <input type="text" id="fatherName" placeholder="Father's Name">
         <input type="text" id="religion" placeholder="Religion">
         <input type="text" id="bloodType" placeholder="Blood Type*">
-        <button id="submit">Submit</button>
-    </div>
+        <button id="submit" type="submit">Submit</button>
+    </form>
     <div id="output"></div>
     <script type="module" src="studentSignUp.mjs"></script>
 </body>
