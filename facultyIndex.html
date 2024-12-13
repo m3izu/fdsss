@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="landing.css">
-</head>
-<body>
+    <link rel="stylesheet" href="landing.css" />
+  </head>
+  <body>
     <div class="header">
-    
-        <h4 class="vfu">Vonmar and Friends University</h4>
-
+      <h4 class="vfu">Vonmar and Friends University</h4>
     </div>
-    
+
     <div class="mid">
-        <div class="left">
-        
+      <div class="left"></div>
+
+      <div class="mainInfo">
+        <div class="welLogo">
+          <div class="welBox">
+            <h1 class="wel">Welcome!</h1>
+          </div>
+          <div class="logow">
+            <img alt="marielIloveyou" src="Christmas.png" />
+          </div>
         </div>
 
-        <div class="mainInfo">
-            <div class="welLogo">
-                <div class="welBox">
-                    <h1 class="wel">Welcome!</h1>
-                </div>
-                <div class="logow">
-                    <img alt="marielIloveyou" src="Christmas.png">
-                </div>
-
+        <div class="loginBox">
+          <form id="faculty_login_form" class="inputLogin">
+            <div>
+              <label>Faculty Number</label>
+              <input
+                type="text"
+                id="loginFacultyId"
+                placeholder="Enter Faculty Number"
+                required
+              />
             </div>
-            
-            <div class="loginBox">
-                <div class="inputLogin">
+            <button id="faculty_login_form_submit" type="submit">Login</button>
+          </form>
+
+          <div class="sect1">
+            <div id="student" onclick="window.location.href='index.html'">
+              <p class="lg">Student?</p>
+            </div>
+            <div
+              id="sign_up"
+              onclick="window.location.href='facultySignUp.html'"
+            >
+              <p class="lg">Sign Up!</p>
+            </div>
+          </div>
+
+          <!-- <div class="inputLogin">
                     <input type="text" id="loginFacultyId" placeholder="Enter Faculty Number">
                     <button id="login">Login</button>
                 </div>
@@ -45,18 +65,15 @@
                                 Sign Up!
                             </p>
                         </div>
-                    </div>
-            </div>
+                    </div> -->
         </div>
-        <div class="right">
-        </div>
+      </div>
+      <div class="right"></div>
     </div>
 
     <div class="footer">
-        <div class="credits">
-        
-        </div>
+      <div class="credits"></div>
     </div>
     <script type="module" src="facultyIndex.mjs"></script>
-</body>
+  </body>
 </html>
