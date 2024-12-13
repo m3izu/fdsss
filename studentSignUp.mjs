@@ -40,7 +40,8 @@ form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const studentId = studentIdInput.value;
     const fullName = fullNameInput.value;
-    const dateOfbirth = dateOfbirthInput.value;
+    const dateOfbirth = new Date (dateOfbirthInput.value);
+    dateOfbirthInput.setHours(0,0,0,0);
     const height = heightInput.value;
     const weight = weightInput.value;
     const gender = genderInput.value;
@@ -63,9 +64,9 @@ form.addEventListener('submit', async (event) => {
         && motherName && fatherName && religion && bloodType && emconfullName) {
         try {
             // Add data to Firestore
-            await setDoc(doc(db, "students", studentId), { studentId, fullName, dateOfbirth, height:height * 1, weight, gender, nationality, 
+            await setDoc(doc(db, "students", studentId), { studentId, fullName, dateOfbirth, height:height * 1, weight:weight * 1, gender, nationality, 
                 currentAddress, permanentAddress, civilStatus, contactInformation, 
-                emergencyContact, motherName, fatherName, religion, bloodType, emconfullName});
+                emergencyContact:emergencyContact * 1, motherName, fatherName, religion, bloodType, emconfullName});
             outputDiv.textContent = `Data added`;
         } catch (e) {
             console.error("Error adding document: ", e);

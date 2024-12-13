@@ -51,7 +51,8 @@ form.addEventListener('submit', async (event) => {
     const qualifications = qualificationstInput.value;
     const employeeStatus = employeeStatusInput.value;
     const yearofService = yearofServiceInput.value;
-    const dateOfBirth = dateOfBirthInput.value;
+    const dateOfBirth = new Date (dateOfBirthInput.value);
+    dateOfBirth.setHours(0,0,0,0);
     const height = heightInput.value;
     const weight = weightInput.value;
     const gender = genderInput.value;
@@ -70,15 +71,15 @@ form.addEventListener('submit', async (event) => {
         try {
             await setDoc(doc(db, "faculty", facultyId), { facultyId, fullName, position, department, qualifications, employeeStatus, 
                 yearofService, dateOfBirth,
-                height,
-                weight,
+                height:height * 1,
+                weight:weight * 1,
                 gender,
                 nationality,
                 currentAddress,
                 permanentAddress,
                 civilStatus,
                 contactInformation,
-                emergencyContact,
+                emergencyContact:emergencyContact * 1,
                 motherName,
                 fatherName,
                 religion,
