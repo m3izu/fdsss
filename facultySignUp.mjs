@@ -24,9 +24,26 @@ const qualificationstInput = document.getElementById('qualifications');
 const employeeStatusInput = document.getElementById('employeeStatus');
 const yearofServiceInput = document.getElementById('yearofService');
 const outputDiv = document.getElementById('output');
+const dateOfBirthInput = document.getElementById('dateOfBirth');
+const heightInput = document.getElementById('height');
+const weightInput = document.getElementById('weight');
+const genderInput = document.getElementById('gender');
+const nationalityInput = document.getElementById('nationality');
+const currentAddressInput = document.getElementById('currentAddress');
+const permanentAddressInput = document.getElementById('permanentAddress');
+const civilStatusInput = document.getElementById('civilStatus');
+const contactInformationInput = document.getElementById('contactInformation');
+const emergencyContactInput = document.getElementById('emergencyContact');
+const motherNameInput = document.getElementById('motherName');
+const fatherNameInput = document.getElementById('fatherName');
+const religionInput = document.getElementById('religion');
+const bloodTypeInput = document.getElementById('bloodType');
 
 
-document.getElementById('submit').addEventListener('click', async () => {
+
+
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
     const facultyId = facultyIdInput.value;
     const fullName = fullNameInput.value;
     const position = positionInput.value;
@@ -34,14 +51,38 @@ document.getElementById('submit').addEventListener('click', async () => {
     const qualifications = qualificationstInput.value;
     const employeeStatus = employeeStatusInput.value;
     const yearofService = yearofServiceInput.value;
-   
-    
-    
+    const dateOfBirth = dateOfBirthInput.value;
+    const height = heightInput.value;
+    const weight = weightInput.value;
+    const gender = genderInput.value;
+    const nationality = nationalityInput.value;
+    const currentAddress = currentAddressInput.value;
+    const permanentAddress = permanentAddressInput.value;
+    const civilStatus = civilStatusInput.value;
+    const contactInformation = contactInformationInput.value;
+    const emergencyContact = emergencyContactInput.value;
+    const motherName = motherNameInput.value;
+    const fatherName = fatherNameInput.value;
+    const religion = religionInput.value;
+    const bloodType = bloodTypeInput.value;
 
-    if (facultyId && fullName && position && department && qualifications && employeeStatus && yearofService ) {
+    if (facultyId && fullName && position && department && qualifications && employeeStatus && yearofService && dateOfBirth && height && weight && gender && nationality && civilStatus && permanentAddress && currentAddress && contactInformation && emergencyContact && motherName && fatherName && religion && bloodType) {
         try {
-            await setDoc(doc(db, "faculty", facultyId), { facultyId, fullName, position, position, department, qualifications, employeeStatus, 
-                yearofService});
+            await setDoc(doc(db, "faculty", facultyId), { facultyId, fullName, position, department, qualifications, employeeStatus, 
+                yearofService, dateOfBirth,
+                height,
+                weight,
+                gender,
+                nationality,
+                currentAddress,
+                permanentAddress,
+                civilStatus,
+                contactInformation,
+                emergencyContact,
+                motherName,
+                fatherName,
+                religion,
+                bloodType});
             outputDiv.textContent = `Data added`;
         } catch (e) {
             console.error("Error adding document: ", e);

@@ -40,13 +40,32 @@
                 <div class="containerInfo">   
                     <h2 class="welc">Welcome, <span id="studentName"></span>!</h2>
                     <div class="infoCont">
-                        <div class="columnInfo">    
-                            <p><strong>Employee ID:</strong> <span id="dashboardStudentId"></span></p>
-                            <p><strong>Position/Title:</strong> <span id="dashboardDob"></span></p>
-                            <p><strong>Department/Program:</strong> <span id="dashboardHeight"></span></p>
-                            <p><strong>Qualification:</strong> <span id="dashboardGender"></span></p>
-                            <p><strong>Employment Status:</strong> <span id="dashboardNationality"></span></p>
-                            <p><strong>Years of Service:</strong> <span id="dashboardAddress"></span></p>
+                        <div class="infoCont">    
+                            <div class="columnInfo">
+                                <p><strong>Employee ID:</strong> <span id="dashboardStudentId"></span></p>
+                                <p><strong>Position/Title:</strong> <span id="dashboardDob"></span></p>
+                                <p><strong>Department/Program:</strong> <span id="dashboardHeight"></span></p>
+                                <p><strong>Qualification:</strong> <span id="dashboardGender"></span></p>
+                                <p><strong>Employment Status:</strong> <span id="dashboardNationality"></span></p>
+                                <p><strong>Years of Service:</strong> <span id="dashboardAddress"></span></p>
+                                <p><strong>Date of Birth:</strong> <span id="dateOfBirth"></span></p>
+                                <p><strong>Height:</strong> <span id="height"></span></p>
+                                <p><strong>Weight:</strong> <span id="weight"></span></p>
+                            </div>
+                            <div class="columnInfo">
+                                <p><strong>Gender:</strong> <span id="gender"></span></p>
+                                <p><strong>Nationality:</strong> <span id="nationality"></span></p>
+                                <p><strong>Current Address:</strong> <span id="currentAddress"></span></p>
+                                <p><strong>Permanent Address:</strong> <span id="permanentAddress"></span></p>
+                                <p><strong>Civil Status:</strong> <span id="civilStatus"></span></p>
+                                <p><strong>Contact Information:</strong> <span id="contactInformation"></span></p>
+                                <p><strong>Emergency Contact:</strong> <span id="emergencyContact"></span></p>
+                                <p><strong>Mother's Name:</strong> <span id="motherName"></span></p>
+                                <p><strong>Father Name:</strong> <span id="fatherName"></span></p>
+                                <p><strong>Religion:</strong> <span id="religion"></span></p>
+                                <p><strong>Blood Type:</strong> <span id="bloodType"></span></p>
+                            </div>
+
                         </div> 
                         <div class="columnInfo">
                             
@@ -73,13 +92,20 @@
             document.getElementById('dashboardGender').textContent = facultyData.qualifications || "N/A";
             document.getElementById('dashboardNationality').textContent = facultyData.employeeStatus || "N/A";
             document.getElementById('dashboardAddress').textContent = `${facultyData.yearofService || "N/A"}`;
-            document.getElementById('dashboardCivilStatus').textContent = facultyData.civilStatus || "N/A";
-            document.getElementById('dashboardContactInformation').textContent = facultyData.contactInformation || "N/A";
-            document.getElementById('dashboardEmergencyContact').textContent = facultyData.emergencyContact || "N/A";
-            document.getElementById('dashboardmotherName').textContent = facultyData.motherName || "N/A";
-            document.getElementById('dashboardfatherName').textContent = facultyData.fatherName || "N/A";
-            document.getElementById('dashboardReligion').textContent = facultyData.religion || "N/A";
-            document.getElementById('dashboardBloodType').textContent = facultyData.bloodType || "N/A";
+            document.getElementById('dateOfBirth').textContent = facultyData.dateOfBirth || "N/A";
+            document.getElementById('height').textContent = facultyData.height || "N/A";
+            document.getElementById('weight').textContent = facultyData.weight || "N/A";
+            document.getElementById('gender').textContent = facultyData.gender || "N/A";
+            document.getElementById('nationality').textContent = facultyData.nationality || "N/A";
+            document.getElementById('currentAddress').textContent = facultyData.currentAddress || "N/A";
+            document.getElementById('permanentAddress').textContent = facultyData.permanentAddress || "N/A";
+            document.getElementById('civilStatus').textContent = facultyData.civilStatus || "N/A";
+            document.getElementById('contactInformation').textContent = facultyData.contactInformation || "N/A";
+            document.getElementById('emergencyContact').textContent = facultyData.emergencyContact || "N/A";
+            document.getElementById('motherName').textContent = facultyData.motherName || "N/A";
+            document.getElementById('fatherName').textContent = facultyData.fatherName || "N/A";
+            document.getElementById('religion').textContent = facultyData.religion || "N/A";
+            document.getElementById('bloodType').textContent = facultyData.bloodType || "N/A";
         } else {
             alert("No students data found. Please log in.");
         }

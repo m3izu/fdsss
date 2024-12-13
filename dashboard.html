@@ -67,10 +67,13 @@
                             <p><strong>Civil Status:</strong> <span id="dashboardCivilStatus"></span></p>
                             <p><strong>Contact Information:</strong> <span id="dashboardContactInformation"></span></p>
                             <p><strong>Emergency Contact:</strong><span id="dashboardEmergencyContact"></span></p>
+                            <p><strong>Emergency Contact Full Name:</strong><span id="emconfullName"></span></p>
+        
                             <p><strong>Mother's Maiden Name:</strong><span id="dashboardmotherName"></span></p>
                             <p><strong>Father's Name:</strong><span id="dashboardfatherName"></span></p>
                             <p><strong>Religion:</strong><span id="dashboardReligion"></span></p>
                             <p><strong>Blood Type:</strong><span id="dashboardBloodType"></span></p>
+                            
                         </div>
                     </div>
                 </div> 
@@ -102,6 +105,8 @@
             document.getElementById('dashboardfatherName').textContent = studentData.fatherName || "N/A";
             document.getElementById('dashboardReligion').textContent = studentData.religion || "N/A";
             document.getElementById('dashboardBloodType').textContent = studentData.bloodType || "N/A";
+            document.getElementById('emconfullName').textContent = studentData.emconfullName || "N/A";
+
         } else {
             alert("No students data found. Please log in.");
             window.location.href = 'index.html';
