@@ -41,7 +41,7 @@ form.addEventListener('submit', async (event) => {
     const studentId = studentIdInput.value;
     const fullName = fullNameInput.value;
     const dateOfbirth = new Date (dateOfbirthInput.value);
-    dateOfbirthInput.setHours(0,0,0,0);
+    dateOfbirth.setHours(0,0,0,0);
     const height = heightInput.value;
     const weight = weightInput.value;
     const gender = genderInput.value;
